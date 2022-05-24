@@ -1,6 +1,7 @@
 package tacos.web;
 
 
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import tacos.Order;
 import tacos.data.OrderRepository;
-
-import javax.validation.Valid;
 
 
 @Controller
@@ -35,7 +34,6 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
-
         orderRepo.save(order);
         sessionStatus.setComplete();
 
